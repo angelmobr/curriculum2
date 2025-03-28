@@ -2,10 +2,19 @@
 
 * {
     margin: 0;
-    padding: 0;
+    
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+    outline: 1px solid tomato
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+p {
+    text-align: justify;
 }
 
 body {
@@ -15,11 +24,18 @@ body {
 
 img {
     max-width: 100%;
+    
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.skills container {
+    max-width: 1200px;
+    margin: 0 auto;
+    
 }
 
 .menu {
@@ -30,6 +46,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: #49bada;
+    font-size: 25px;
 }
 
 .logo {
@@ -39,6 +57,7 @@ img {
     text-transform: uppercase;
 }
 
+/* Estilo base para los elementos del menú */
 .menu .navbar ul li {
     position: relative;
     float: left;
@@ -56,14 +75,47 @@ img {
     color: #49bada;
 }
 
+/* Esconde el menú en pantallas pequeñas por defecto */
 #menu {
     display: none;
 }
 
+/* Estilos del icono del menú */
 .menu-icono {
     width: 25px;
     cursor: pointer;
     display: none;
+}
+
+/* Cuando la pantalla es pequeña, muestra el icono del menú */
+@media screen and (max-width: 768px) {
+    /* Mostrar el ícono del menú en pantallas pequeñas */
+    .menu-icono {
+        display: block;
+    }
+
+    /* El menú debe estar oculto por defecto */
+    .navbar ul {
+        display: none;
+        width: 100%;
+        background-color: #333;
+    }
+
+    /* Cuando el checkbox está marcado, mostrar el menú */
+    #menu:checked + label + .navbar ul {
+        display: block;
+    }
+
+    /* Estilo para que los elementos de la lista ocupen el 100% */
+    .navbar ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar ul li a {
+        padding: 15px;
+        font-size: 18px;
+    }
 }
 
 .menu label {
@@ -72,10 +124,11 @@ img {
 }
 
 .header {
-    display: flex;
+   
     align-items: center;
-    min-height: 70vh;
+    min-height: 10vh;
     padding: 50px 0 0 0;
+    
 }
 
 .header-content {
@@ -86,6 +139,8 @@ img {
 .header-txt {
     flex-basis: 50%;
 }
+
+
 
 .header txt span {
     font-size: 30px;
@@ -115,20 +170,34 @@ img {
 }
 
 .about {
-    padding: 0 0 100px 0;
     display: flex;
     align-items: center;
 }
 
 .about-img {
-    flex-basis: 40%;
+    flex-basis: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* Asegura que la imagen se centre dentro de este contenedor */
 }
 
 .about-img img {
-    width: 350px;
-    border-radius: 15px;
-    border: 10px solid #49bada;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #f0f0f0;
+    border: 4px solid #49bada;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease; /* Añade una transición suave */
 }
+
+.about-img img:hover {
+    transform: scale(1.1); /* Hace el zoom al pasar el cursor */
+}
+
+
 
 .about-txt {
     flex-basis: 60%;
@@ -137,7 +206,7 @@ img {
 h2 {
     font-size: 30px;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: #ffffff;
     margin-bottom: 20px;
     white-space: nowrap;
 }
@@ -152,19 +221,27 @@ h2 {
     font-size: 17px;
     display: grid;
     grid-template-columns: max-content auto;
-    gap: 10px 20px;          /* Espacio entre las columnas y filas */
+    gap: 10px 20px;
+    /* Espacio entre las columnas y filas */
     align-items: center;
-    background: #f4f4f4;      /* Fondo suave */
-    padding: 20px;           
-    border-radius: 8px;       /* Bordes redondeados */
+    background: #f4f4f4;
+    /* Fondo suave */
+    padding: 20px;
+    border-radius: 8px;
+    /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px;         /* Ancho máximo */
-    margin: 0 auto;           /* Centrado */
-    display: flex;               /* Flexbox para alinear elementos */
-    align-items: center;         /* Centra verticalmente */
-    gap: 40px;                   /* Espacio entre el botón y los datos */
+    max-width: 600px;
+    /* Ancho máximo */
+    margin: 0 auto;
+    /* Centrado */
+    display: flex;
+    /* Flexbox para alinear elementos */
+    align-items: center;
+    /* Centra verticalmente */
+    gap: 40px;
+    /* Espacio entre el botón y los datos */
 
-   
+
 }
 
 .personal-info dt {
@@ -188,12 +265,12 @@ h2 {
 }
 
 .portafolio-content {
-    
+
     display: flex;
     width: 100%;
     height: 100%;
-    gap: 40px;  
-    
+    gap: 40px;
+
 }
 
 .portafolio-1 {
@@ -213,7 +290,7 @@ h2 {
     /* Centrar la caja */
     overflow: hidden;
     min-height: 400px;
-    
+
 }
 
 .portafolio-box {
@@ -232,11 +309,12 @@ h2 {
     margin: 50px auto;
     /* Centrar la caja */
     overflow: hidden;
-    
-    
+    min-height: 400px;
+
+
 }
 
-.contenedor-box { 
+.contenedor-box {
     background: #101029;
     /* Fondo de la caja */
     border-radius: 20px;
@@ -248,12 +326,13 @@ h2 {
 
     /* Ancho máximo */
     margin: 9px auto;
-    /* Centrar la caja */   
+    /* Centrar la caja */
 }
 
 .contenedor-box h3 {
     font-size: 24px;
-    color: #3498db; /* Color brillante para los títulos */
+    color: #3498db;
+    /* Color brillante para los títulos */
     margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -261,30 +340,37 @@ h2 {
 
 .contenedor-box p {
     font-size: 16px;
-    color: #bdc3c7; /* Color claro para el texto del párrafo */
+    color: #bdc3c7;
+    /* Color claro para el texto del párrafo */
     margin-bottom: 10px;
 }
 
 /* Estilo para la lista */
 .contenedor-box ul {
-    list-style-type: none; /* Eliminar los puntos por defecto */
+    list-style-type: none;
+    /* Eliminar los puntos por defecto */
     padding-left: 0;
 }
 
 /* Estilo para cada ítem de la lista */
 .contenedor-box li {
     font-size: 18px;
-    color: #ecf0f1; /* Color blanco suave para las habilidades */
+    color: #ecf0f1;
+    /* Color blanco suave para las habilidades */
     padding: 8px 0;
     margin: 5px 0;
-    border-bottom: 1px solid #34495e; /* Líneas separadoras entre las habilidades */
-    transition: all 0.3s ease; /* Suaviza el efecto al pasar el ratón */
+    border-bottom: 1px solid #34495e;
+    /* Líneas separadoras entre las habilidades */
+    transition: all 0.3s ease;
+    /* Suaviza el efecto al pasar el ratón */
 }
 
 /* Efecto hover para los ítems de la lista */
 .contenedor-box li:hover {
-    color: #3498db; /* Cambiar el color al pasar el ratón */
-    transform: translateX(5px); /* Desplazamiento sutil a la derecha */
+    color: #3498db;
+    /* Cambiar el color al pasar el ratón */
+    transform: translateX(5px);
+    /* Desplazamiento sutil a la derecha */
 }
 
 
@@ -295,7 +381,7 @@ h2 {
 
 .portafolio-txt {
     flex-basis: 100%;
-    
+
 
 }
 
@@ -334,8 +420,7 @@ h2 {
 }
 
 .skills {
-    padding: 50px 0 100px 0;
-    text-align: center;
+    padding: 50px 0 100px 0;;
 }
 
 .skills-content {
@@ -343,14 +428,22 @@ h2 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 100px;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
-    /* Centra verticalmente (opcional) */
+   
 }
 
 .skills-content img {
     width: 70px;
 }
+
+.skills-content h2 {
+    
+    justify-content: right;
+    align-items: center;
+   
+}
+
 
 .footer {
     padding: 50px 0;
@@ -361,90 +454,104 @@ h2 {
 }
 
 
-.contenedor {
-    display: flex;          /* Usamos flexbox para poner los items uno al lado del otro */
-    justify-content: space-around;  /* Espacio entre los contenedores */
-    gap: 20px;              /* Espacio entre los contenedores */
+.contenedor { /*CONTENEDOR DONDE ESTAN LAS CAJAS DE HABILIDADES/*
+    /* CONTENEDOR DONDE ESTAN LAS CAJAS DE HABILIDADES */
+    display: flex;          /* Usamos flexbox para alinear los items */
+    justify-content: space-around;  /* Espacio entre las cajas */
+    gap: 30px;    
+    background-color:#101630;  
+    flex-wrap: wrap;         /* Permite que las cajas se ajusten en pantallas pequeñas */
+    /* Espaciado padding: 20px;            */
+    max-width: 1200px;       /* Ancho máximo */
+    margin: auto;            /* Centra el contenedor */
 }
 
 /* Estilo de cada contenedor individual */
 .contenedor-item {
-    flex: 1;                /* Hace que los contenedores ocupen el mismo espacio */
-    background-color: #f2f2f2;  /* Fondo gris claro para los contenedores */
-    padding: 20px;          /* Espacio interno */
-    border-radius: 10px;    /* Bordes redondeados */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+  flex: 1;                /* Hace que los contenedores ocupen el mismo espacio */
+  background-color: #f2f2f2;  /* Fondo gris claro para los contenedores */
+  padding: 20px;          /* Espacio interno */
+  border-radius: 10px;    /* Bordes redondeados */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* Sombra suave */
 }
 
 .contenedor-item h3 {
-    margin-top: 0;          /* Elimina margen superior del título */
+  margin-top: 0;          /* Elimina margen superior del título */
 }
 
 .tecnologias-proyectos {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5em;
-  }
-  
-  .tecnologia-proyecto {
+}
+
+.tecnologia-proyecto {
     width: max-content;
     padding: 0.1em 0.3em;
     border-radius: 5px;
     color: var(--background);
-  }
-  .html {
+}
+
+.html {
     background-color: #f75421;
-  }
-  
-  .css {
+}
+
+.css {
     background-color: #2d53e5;
-  }
-  
-  .javascript {
+}
+
+.javascript {
     background-color: #ffd43b;
-  }
-  
-  .wordpress {
+}
+
+.wordpress {
     background-color: #28799e;
-  }
-  
-  .node {
+}
+
+.node {
     background-color: #84bf08;
-  }
-  
-  .angular {
+}
+
+.angular {
     background-color: #de0837;
-  }
-  
-  .react {
+}
+
+.react {
     background-color: #66dbfb;
-  }
-  
-  .bootstrap {
+}
+
+.bootstrap {
     background-color: #7c18f8;
-  }
+}
 
-  .elementor {
+.elementor {
     background-color: #FF1493;
-  }
+}
 
-  .vacio {
+.vacio {
     display: none !important;
-  }
+}
 
-  /* Contenedor envolvente para las dos cajas */
+/* Contenedor envolvente para las dos cajas */
 
 
 /* Estilos de las cajas */
 .contenedor-box {
-    background: #101029;        /* Fondo */
-    border-radius: 10px;        /* Bordes redondeados */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra */
-    padding: 40px;              /* Espaciado interno */
-    flex: 1;                    /* Hace que ambas cajas tengan el mismo tamaño */
-    min-height: 350px;          /* Establece la misma altura mínima */
-    transition: transform 0.3s; /* Efecto suave */
-    
+    background: #101029;
+    /* Fondo */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    /* Sombra */
+    padding: 40px;
+    /* Espaciado interno */
+    flex: 1;
+    /* Hace que ambas cajas tengan el mismo tamaño */
+    min-height: 350px;
+    /* Establece la misma altura mínima */
+    transition: transform 0.3s;
+    /* Efecto suave */
+
 }
 
 /* Estilo para los ítems dentro de las cajas */
@@ -456,45 +563,58 @@ h2 {
 
 .skills-list li {
     font-size: 18px;
-    color: #ffffff;              /* Color del texto */
+    color: #ffffff;
+    /* Color del texto */
     margin: 15px 0;
     display: flex;
     align-items: center;
 }
 
 .skills-list i {
-    margin-right: 10px;          /* Espacio entre el icono y el texto */
+    margin-right: 10px;
+    /* Espacio entre el icono y el texto */
     font-size: 24px;
 }
 
 .tecnologias_pagina {
     display: flex;
-    flex-direction: column;   /* Mantiene el título arriba */
+    flex-direction: column;
+    /* Mantiene el título arriba */
     align-items: center;
     gap: 1em;
 }
 
-.pagina {  
-    display: flex;             /* Elementos en fila */
-    justify-content: center;   /* Centra horizontalmente */
-    align-items: center;       /* Centra verticalmente */
-    gap: 1em;                  /* Espacio entre las tecnologías */
+.pagina {
+    display: flex;
+    /* Elementos en fila */
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    gap: 1em;
+    /* Espacio entre las tecnologías */
 }
 
 .tecnologias_pagina h3 {
     font-weight: 300;
-    color: #ffffff; /* Cambia el color del texto (usa el código hexadecimal o nombre del color) */
+    color: #ffffff;
+    /* Cambia el color del texto (usa el código hexadecimal o nombre del color) */
 }
 
 .contacto {
-    display: flex;               /* Alinea los elementos en fila */
-    justify-content: left;     /* Centra horizontalmente */
-    align-items: center;         /* Centra verticalmente */
-    gap: 1.5em;                  /* Espacio uniforme entre elementos */
-    padding: 1.5em;              /* Espaciado interno */
-             /* Fondo suave para destacar la sección */
-    
-    
+    display: flex;
+    /* Alinea los elementos en fila */
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    gap: 1.5em;
+    /* Espacio uniforme entre elementos */
+    padding: 1.5em;
+    /* Espaciado interno */
+    /* Fondo suave para destacar la sección */
+
+
 }
 
 /* Botón CV */
@@ -503,15 +623,18 @@ h2 {
     align-items: center;
     gap: 0.5em;
     padding: 0.75em 1.5em;
-    background: #49bada;           /* Color LinkedIn */
+    background: #49bada;
+    /* Color LinkedIn */
     color: white;
     text-decoration: none;
     font-weight: 600;
     border-radius: 8px;
     transition: all 0.3s ease;
 }
+
 .btn-1:hover {
-    background: #005582;           /* Oscurece al pasar el mouse */
+    background: #005582;
+    /* Oscurece al pasar el mouse */
 }
 
 /* Enlaces de contacto */
@@ -521,7 +644,8 @@ h2 {
     align-items: center;
     width: 50px;
     height: 50px;
-    color: #fff;                /* Color LinkedIn */
+    color: #fff;
+    /* Color LinkedIn */
     background: #49bada;
     border-radius: 50%;
     font-size: 1.5em;
@@ -529,10 +653,14 @@ h2 {
     text-decoration: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
 .link-contacto:hover {
-    background: #0077b5;           /* Azul LinkedIn al hacer hover */
-    color: #fff;                    /* Íconos blancos */
-    transform: scale(1.1);          /* Ligero zoom */
+    background: #0077b5;
+    /* Azul LinkedIn al hacer hover */
+    color: #fff;
+    /* Íconos blancos */
+    transform: scale(1.1);
+    /* Ligero zoom */
 }
 
 
@@ -568,11 +696,6 @@ h2 {
         display: initial;
     }
 
-    .header {
-        min-height: 0vh;
-        padding: 100px 30px 30px 30px;
-    }
-
     .header-content {
         flex-direction: column;
         text-align: center;
@@ -580,6 +703,11 @@ h2 {
 
     .header-txt h1 {
         font-size: 70px;
+    }
+   
+
+    .header-txt h2 {
+        font-size: 100%;       /* Reduce el subtítulo */
     }
 
     .about {
@@ -593,7 +721,7 @@ h2 {
     }
 
     .about-img img {
-        width: 250px;
+        
         margin-bottom: 15px;
     }
 
@@ -607,9 +735,17 @@ h2 {
 
     .portafolio-1 {
         flex-direction: column;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+        align-content: center;
     }
 
+    .portafolio-box {
+        flex-direction: column;
+        margin-bottom: 20px;
+        align-content: center;
+    }
+
+    
     .portafolio-txt {
         text-align: center;
         margin-bottom: 30px;
