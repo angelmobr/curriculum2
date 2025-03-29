@@ -690,12 +690,12 @@ h2 {
     }
 
     .header-txt h1 {
-        font-size: 70px;
+        font-size: 40px;
     }
    
 
     .header-txt h2 {
-        font-size: 100%;       /* Reduce el subtítulo */
+        font-size: 15px;       /* Reduce el subtítulo */
     }
 
     .about {
